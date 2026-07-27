@@ -27,5 +27,7 @@ RUN dotnet publish "./Basket.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish
 # Esta fase se usa en producción o cuando se ejecuta desde VS en modo normal (valor predeterminado cuando no se usa la configuración de depuración)
 FROM base AS final
 WORKDIR /app
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Basket.API.dll"]
