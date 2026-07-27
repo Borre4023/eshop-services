@@ -11,5 +11,10 @@ namespace Catalog.API.Exceptions
             : base($"Producto con nombre '{name}' no encontrado")
         {
         }
+
+        public ProductNotFoundException(Guid id)
+            : base($"Producto con ID '{id}' no encontrado")
+        {
+        }
     }
 }
